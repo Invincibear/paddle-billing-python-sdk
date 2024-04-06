@@ -1,25 +1,23 @@
-from setuptools import setup, find_packages
+from setuptools  import setup, find_packages
 
 
 setup(
-    version         = '0.1.0',
+    version          = '0.0.0',
 
-    author          = 'Paddle and contributors',
-    author_email    = 'team-dx@paddle.com',
-    description     = "Paddle's Python SDK for Paddle Billing",
-    keywords        = ['paddle', 'sdk', 'python'],
-    license         = 'Apache-2.0',
-    name            = 'paddle-python-sdk',
-    packages        = find_packages(),
-    python_requires = '>=3.11',
-    url             = 'https://developer.paddle.com/api-reference/overview',
+    author           = 'Corey Regan',
+    author_email     = 'regan.corey@gmail.com',
+    description      = 'Deprecated - use paddle-python-sdk instead',
+    name             = 'paddle-billing-python-sdk',
+    packages         = find_packages(),
+    python_requires  = '>=3.11',
+    url              = 'https://github.com/invincibear/paddle-billing-python-sdk',
 
     long_description              = open('README.md').read(),
     long_description_content_type = 'text/markdown',
 
     classifiers = [
         # Full list: https://pypi.org/classifiers/
-        'Development Status :: 4 - Beta',
+        'Development Status :: 7 - Inactive',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.11',

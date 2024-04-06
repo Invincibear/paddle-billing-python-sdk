@@ -1,2 +1,0 @@
-class SdkException(Exception):
-    pass

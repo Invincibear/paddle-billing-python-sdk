@@ -2,17 +2,13 @@ name: Deploy to PyPi
 
 
 on:
-  workflow_run:
-    workflows: ["Run Tests"]
-    branches:  [main]
-    types:
-      - completed
+  push:
+    branches: [ main ]
 
 
 jobs:
   deploy:
     runs-on:     ubuntu-latest
-    if:          github.event.workflow_run.conclusion == 'success'
     environment: release
 
     permissions:
@@ -39,20 +35,6 @@ jobs:
         run:  |
           python -m build
 
-      - name: Check if version has changed
-        id:   check_version
-        run:  |
-          LOCAL_VERSION=$(python setup.py --version)
-          PYPI_VERSION=$(curl -s https://pypi.org/pypi/paddle-python-sdk/json | jq -r '.info.version')
-          if [ "$LOCAL_VERSION" != "$PYPI_VERSION" ]; then
-              echo "Version has changed. Current version: $LOCAL_VERSION"
-              echo "should_publish=true" >> $GITHUB_ENV
-          else
-              echo "Version has not changed. Skipping publish."
-              echo "should_publish=false" >> $GITHUB_ENV
-          fi
-
       - name: Publish to PyPi
         id:   publish
-        if:   env.should_publish == 'true'
         uses: pypa/gh-action-pypi-publish@release/v1

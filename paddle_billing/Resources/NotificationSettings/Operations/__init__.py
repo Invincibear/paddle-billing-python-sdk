@@ -1,2 +1,0 @@
-from paddle_billing.Resources.NotificationSettings.Operations.CreateNotificationSetting import CreateNotificationSetting
-from paddle_billing.Resources.NotificationSettings.Operations.UpdateNotificationSetting import UpdateNotificationSetting

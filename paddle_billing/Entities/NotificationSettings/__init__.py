@@ -1,1 +1,0 @@
-from paddle_billing.Entities.NotificationSettings.NotificationSettingType import NotificationSettingType
